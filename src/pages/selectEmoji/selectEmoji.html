@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="back"></ion-icon>
+    </button>
+
+    <ion-title>
+      Emoji Print
+    </ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-row justify-content-center>
+    <ion-img width="328px" height="328px" src="{{myEmoji}}"></ion-img>
+  </ion-row>
+  <form [formGroup]="participanteForm" (ngSubmit)="validForm()">
+    <ion-row justify-content-center padding-top>
+      <ion-item>
+        <ion-label color="{{participanteForm.controls.nome.invalid && participanteForm.controls.nome.dirty? 'danger' : 'light'}}" floating>Nome</ion-label>
+        <ion-input type="text" (ionBlur)="invalidName = participanteForm.controls.nome.invalid? true : false" formControlName="nome" ></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <div class="invalid-field-container">
+    <ion-row  padding-left *ngIf="invalidName" [@enterAnimation]>
+        <div class="invalid-field">Please enter a valid name.</div>
+    </ion-row>
+    </div>
+
+    <ion-row justify-content-center padding-top>
+      <ion-item>
+        <ion-label color="light">Sexo</ion-label>
+        <ion-select formControlName="sexo" cancelText="Cancelar" >
+          <ion-option value="o">Masculino</ion-option>
+          <ion-option value="a">Feminino</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-row>
+
+    <ion-row justify-content-center padding-top>
+<button class="form-buttons" ion-button outline color="light" type="button" (click)="openGallery()">Alterar Emoji</button>
+
+    </ion-row>
+
+    <ion-row justify-content-center padding-top>
+      <button class="form-buttons" ion-button outline color="light" type="submit" [disabled]="!participanteForm.valid">Imprimir meu emoji</button>
+    </ion-row>
+  </form>
+</ion-content>
