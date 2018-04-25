@@ -5,7 +5,6 @@ import { MyApp } from './app.component';
 import { Home } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { SelectEmoji } from '../pages/selectEmoji/selectEmoji';
 import { ParticipanteService } from '../shared/participante/participante.service';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,9 +17,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   declarations: [
     MyApp,
     Home,
-    SelectEmoji,
-    // LoginPage
-    
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -29,13 +26,12 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     BrowserAnimationsModule,
     IonicStorageModule.forRoot({
       name: 'cartolando'
-    }),
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     Home,
-    SelectEmoji,
     LoginPage
   ],
   providers: [
