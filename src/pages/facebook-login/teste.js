@@ -1,2 +1,0 @@
-alert("vish");
-return "olocobicho";

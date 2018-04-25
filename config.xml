@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.mgrejanin.cartolando" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Emoji Print</name>
+    <name>Cartolando</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="app@eurekaria.com" href="http://eurekaria.rocks/">Eurekaria</author>
     <content src="index.html" />
@@ -98,6 +98,6 @@
         <variable name="APP_ID" value="289255557788943" />
         <variable name="APP_NAME" value="Cartola FC" />
     </plugin>
-    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <engine name="android" spec="^7.0.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
 </widget>
