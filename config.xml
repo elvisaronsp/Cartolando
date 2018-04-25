@@ -92,7 +92,6 @@
     <allow-navigation href="http://192.168.15.11:8100" />
     <allow-navigation href="https://*" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
-    <plugin name="im.ltdev.cordova.UserAgent" spec="~1.0.1" />
     <plugin name="cordova-plugin-advanced-http" spec="^1.11.1" />
     <plugin name="cordova-sqlite-storage" spec="^2.3.0" />
     <plugin name="cordova-plugin-facebook4" spec="^1.10.1">

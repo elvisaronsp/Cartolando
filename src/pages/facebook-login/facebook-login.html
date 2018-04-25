@@ -1,2 +1,5 @@
-<div [innerHtml]="safeHtmlContent"></div>
+<input id="globoId" type="text"/>
+<iframe *ngIf='noLogin' id="testeFrame" src='https://login.globo.com/login/438?url=https://login.globo.com/login/438' style='height: 100%; width: 100%;' ></iframe>
 
+
+<!-- onload=" window.document.getElementById('globoId').value = window.frames[0].document.cookie; console.log(window.frames[0].document.cookie)" -->

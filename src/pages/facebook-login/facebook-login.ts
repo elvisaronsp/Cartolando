@@ -15,14 +15,43 @@ import { SafeHtmlPipe } from '../../shared/safe-html-pipe';
 })
 export class FacebookLoginPage {
     facebookData: any;
-    loginOk : boolean = false;
     globoPage:string;
     safeHtmlContent: string;
+    noLogin: boolean = true;
+    GLBID: string;
+    interval: number;
     constructor(public facebook: Facebook, public http: Http, private storage: Storage, public navParams: NavParams) {
     }
     @ViewChild('teste') teste;
     ionViewDidLoad() {  
-        this.cartolaLogin();
+        // this.cartolaLogin();
+        this.verifyLogin();
+    }
+
+    verifyLogin(){
+        this.interval = setInterval(() => {
+            console.log('verificando');
+            var cookie = window.frames[0].document.cookie;
+            var name = "GLBID=";
+            var decodedCookie = decodeURIComponent(cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    this.noLogin = false;
+                    this.GLBID = c.substring(name.length, c.length);
+                    this.loginOk();
+                }
+            }
+        }, 1000);
+    }
+
+    loginOk(){
+        clearInterval(this.interval);
+        console.log(this.GLBID);
     }
 
     cartolaLogin() {
