@@ -29,7 +29,7 @@ export class LoginPage {
     }
 
     startLoginGlobo() {
-        this.browser = this.iab.create('https://login.globo.com/login/438', '_self', { hidden: 'yes' });
+        this.browser = this.iab.create('https://login.globo.com/login/438', '_blank', { hidden: 'yes' });
         this.browser.on("loadstart").subscribe(event => this.handleOnLoadStart(event));
         this.browser.on("loadstop").subscribe(event => this.handleOnLoadStop(event));
         this.browser.on("exit").subscribe(event => this.handleOnExit(event));
@@ -79,8 +79,8 @@ export class LoginPage {
         this.http.get("https://api.cartolafc.globo.com/auth/time", options)
             .subscribe(data => {
                 console.log("ok");
-                this.navCtrl.pop();
-                this.navCtrl.push(Home, {data:data['_body']});
+                // this.navCtrl.pop();
+                // this.navCtrl.push(Home, {data:data['_body']});
             }, error => {
                 console.log("erro");
                 console.log(error);// Error getting the data
