@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ParticipanteService } from '../shared/participante/participante.service';
 import { Home } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Home } from '../pages/home/home';
 export class MyApp {
 
   // make Home the root (or first) page
-  rootPage = Home;
+  rootPage = LoginPage;
 
   constructor(
     public platform: Platform,

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { InAppBrowser, InAppBrowserEvent } from '@ionic-native/in-app-browser';
+import { NavController } from 'ionic-angular';
+import { Home } from '../home/home';
 
 @Component({
     selector: 'page-login',
@@ -10,7 +12,7 @@ import { InAppBrowser, InAppBrowserEvent } from '@ionic-native/in-app-browser';
 export class LoginPage {
     GLBID: string;
     browser: any;
-    constructor(private http: Http, private iab: InAppBrowser, private storage: Storage) {
+    constructor(private http: Http, private iab: InAppBrowser, private storage: Storage, private navCtrl:NavController) {
     }
 
     ionViewDidLoad() {
@@ -27,7 +29,7 @@ export class LoginPage {
     }
 
     startLoginGlobo() {
-        this.browser = this.iab.create('https://login.globo.com/login/438', '_blank', { hidden: 'yes' });
+        this.browser = this.iab.create('https://login.globo.com/login/438', '_self', { hidden: 'yes' });
         this.browser.on("loadstart").subscribe(event => this.handleOnLoadStart(event));
         this.browser.on("loadstop").subscribe(event => this.handleOnLoadStop(event));
         this.browser.on("exit").subscribe(event => this.handleOnExit(event));
@@ -77,7 +79,8 @@ export class LoginPage {
         this.http.get("https://api.cartolafc.globo.com/auth/time", options)
             .subscribe(data => {
                 console.log("ok");
-                console.log(data['_body']);
+                this.navCtrl.pop();
+                this.navCtrl.push(Home, {data:data['_body']});
             }, error => {
                 console.log("erro");
                 console.log(error);// Error getting the data
